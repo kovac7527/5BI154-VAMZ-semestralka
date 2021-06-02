@@ -32,14 +32,71 @@
         android:layout_height="match_parent">
 
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hi welcome screen cheers you"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="311dp"
+            android:layout_height="276dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sm_main_logo" />
+
+        <ImageView
+            android:id="@+id/image_euro"
+            android:layout_width="106dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/image_earth"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:srcCompat="@drawable/euro_blue_svg" />
+
+        <ImageView
+            android:id="@+id/image_earth"
+            android:layout_width="98dp"
+            android:layout_height="109dp"
+            android:layout_marginTop="110dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:srcCompat="@drawable/earth_green_svg" />
+
+        <ImageView
+            android:id="@+id/image_timer"
+            android:layout_width="103dp"
+            android:layout_height="108dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toEndOf="@+id/image_earth"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:srcCompat="@drawable/timer_red_svg" />
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="216dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#16C827"
+            android:text="@string/welcome_button_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_earth"
+            tools:text="@string/welcome_button_login" />
+
+        <Button
+            android:id="@+id/button_logout"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="216dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="92dp"
+            android:backgroundTint="#16C827"
+            android:text="LOGOUT"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_earth"
+            tools:text="@string/welcome_button_login" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -2,4 +2,44 @@
     <string name="app_name">SmartMedicApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="welcome_ecology_button">Ekologicky</string>
+    <string name="welcome_economy_button">Ekonomicky</string>
+    <string name="welcome_fast_button">Rýchlo</string>
+    <string name="welcome_button_login">PRIHLÁSENIE</string>
+
+    <string name="ecology_title_main">Chránime našu planétu</string>
+    <string name="ecology_title_subtitle1">Recyklácia</string>
+    <string name="ecology_text_subtitle1">Keď Vám Vaše zariadenie doslúži postaráme sa o jeho recykláciu, rovnako postupujeme aj pri servise Vašich zariadení. Poškodené časti recyklujeme aby sa dali použiť na výrobu nových produktov</string>
+    <string name="ecology_title_subtitle2">Carbon-free</string>
+    <string name="ecology_text_subtitle2">Naša spoločnosť funguje "bezuhlíkovo" to znamená že pri našich činnostiach neprodukujeme žiaden uhlík. Používame výhradne len elektromobily a energie z obnoviteľných zdrojov.</string>
+
+    <string name="economy_title_main">Šetríme Vaše peniaze</string>
+    <string name="economy_title_subtitle1">Garancia najnižšej ceny</string>
+    <string name="economy_text_subtitle1">U nás nikdy nepreplatíte, naše ceny pravidelne aktualizujeme a porovnávame s konkurenciou. Vďaka tomu Vám garantujeme nanjnižšie ceny.</string>
+    <string name="economy_title_subtitle2">Osobitný prístup</string>
+    <string name="economy_text_subtitle2"><br>Ponúkame Vám osobitný prístup aby sme čo najpresnejšie vyhoveli Vašim špecifickým požiadavkam. Vďaka našim transparentým službám vždy viete začo platíte.</br><br></br><br>O každom servisnom zásahu Vás vopred informujeme, oboznámime Vás s cenou, a až po Vašom súhlase zásah vykonáme.</br></string>
+
+    <string name="fast_title_main">Šetríme Váš čas</string>
+    <string name="fast_title_subtitle1">Priamo k Vašim dverám</string>
+    <string name="fast_text_subtitle1">V prípade že si objendáte naše služby, nemusíte nikam chodiť, zariadenia od Vás prevezmeme osobne na dohodnutej adrese. Rovnaký proces je aj v prípade odovzdania opraveného zariadenia.</string>
+    <string name="fast_title_subtitle2">Garancia 48 Hodín</string>
+    <string name="fast_text_subtitle2">Pri bežných opravách máte u nás garanciu že Vám zariadenie odovzdáme opravené do 48hodín od jeho prijatia do servisu.</string>
+    <string name="fast_title_subtitle3">Non-stop podpora</string>
+    <string name="fast_text_subtitle3">Sme tu pre Vás 24 hodín denne, pokiaľ potrebujete poradiť alebo pomôcť na ďiaľku stačí nám zavolať na uvedené telefónne čísla, radi Vám poradíme.</string>
+
+    <string name="login_welcome">Vitajte !</string>
+    <string name="login_add_text">Pre pokračovanie sa prosím prihláste</string>
+    <string name="login_field_name">Meno</string>
+    <string name="login_field_pwd">Heslo</string>
+    <string name="login_button_login">Prihlásiť</string>
+
+
+    <string name="com_auth0_client_id">E3jXEWPwhz7DbDrP5t2GND0HRXEb05mS</string>
+    <string name="com_auth0_domain">dev-dpmumsxt.eu.auth0.com</string>
+    <string name="com_auth0_scheme">demo</string>
+
+
+
 </resources>

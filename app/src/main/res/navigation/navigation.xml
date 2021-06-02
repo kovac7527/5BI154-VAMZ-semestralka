@@ -6,7 +6,35 @@
     app:startDestination="@id/fragment_welcome">
     <fragment
         android:id="@+id/fragment_welcome"
-        android:name="com.example.smartmedicapp.fragment_welcome"
-        android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" />
+        android:name="com.example.smartmedicapp.app_ui.fragmentWelcome"
+        android:label="fragment_welcome">
+        <action
+            android:id="@+id/action_fragment_welcome_to_fragment_economy"
+            app:destination="@id/fragment_economy" />
+        <action
+            android:id="@+id/action_fragment_welcome_to_fragment_ecology"
+            app:destination="@id/fragment_ecology" />
+        <action
+            android:id="@+id/action_fragment_welcome_to_fragment_fast2"
+            app:destination="@id/fragment_fast" />
+        <action
+            android:id="@+id/action_fragment_welcome_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_economy"
+        android:name="com.example.smartmedicapp.app_ui.fragmentEconomy"
+        android:label="fragment_economy" />
+    <fragment
+        android:id="@+id/fragment_ecology"
+        android:name="com.example.smartmedicapp.app_ui.fragmentEcology"
+        android:label="fragment_ecology" />
+    <fragment
+        android:id="@+id/fragment_fast"
+        android:name="com.example.smartmedicapp.app_ui.fragmentFast"
+        android:label="fragment_fast" />
+    <fragment
+        android:id="@+id/fragmentLogin"
+        android:name="com.example.smartmedicapp.app_ui.fragmentLogin"
+        android:label="fragment_login" />
 </navigation>
