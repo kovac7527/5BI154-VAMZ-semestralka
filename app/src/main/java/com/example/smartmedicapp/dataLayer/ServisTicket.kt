@@ -29,6 +29,9 @@ data class ServisTicket(
     @ColumnInfo(name = "ticket_note")
     val ticket_note : String?,
 
+    @ColumnInfo(name = "ticket_state")
+    val ticket_state : Int = 0,
+
     @ColumnInfo(name = "time_stamp")
     val time_stamp: Long = System.currentTimeMillis(),
 

@@ -24,9 +24,8 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentServis"
-        android:name="com.example.smartmedicapp.fragmentServis"
-        android:label="fragment_servis"
-        tools:layout="@layout/fragment_servis" />
+        android:name="com.example.smartmedicapp.app_ui.servis.FragmentServis"
+        android:label="fragment_servis" />
     <fragment
         android:id="@+id/fragmentAboutUs"
         android:name="com.example.smartmedicapp.fragmentAboutUs"

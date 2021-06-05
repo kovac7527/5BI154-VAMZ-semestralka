@@ -24,6 +24,6 @@ interface ServisTicketDatabaseDao {
     @Query("SELECT * FROM servis_ticket_table ORDER BY ticketId ASC")
     suspend fun getLastTicket(): ServisTicket?
 
-    @Query("SELECT * FROM servis_ticket_table ORDER BY ticketId ASC")
-    fun getAllNights(): LiveData<List<ServisTicket>>
+    @Query("SELECT * FROM servis_ticket_table WHERE user_id = :key ORDER BY ticketId ASC")
+    fun getAllTickets(key: String): LiveData<List<ServisTicket>>
 }

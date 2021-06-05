@@ -63,7 +63,7 @@
             app:layout_constraintHorizontal_bias="0.111"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_main"
-            app:srcCompat="@drawable/local_shipping_svg" />
+            app:srcCompat="@mipmap/local_shipping_svg" />
 
         <ImageView
             android:id="@+id/imageView4"

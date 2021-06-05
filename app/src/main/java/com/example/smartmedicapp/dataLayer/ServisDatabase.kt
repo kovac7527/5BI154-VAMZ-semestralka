@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [ServisTicket::class], version = 1, exportSchema = false)
 abstract class ServisDatabase : RoomDatabase() {
 
-    abstract val servisDatabase: ServisTicketDatabaseDao
+    abstract val servisDatabaseDao: ServisTicketDatabaseDao
 
     companion object {
 

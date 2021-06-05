@@ -23,7 +23,9 @@
      the whole ViewModel, so that we can access the LiveData,
      click handlers, and state variables. -->
     <data>
-
+        <variable
+            name="servisViewModel"
+            type="com.example.smartmedicapp.app_ui.servis.ServisViewModel" />
     </data>
 
     <!-- Start of the visible fragment layout using ConstraintLayout -->
@@ -39,6 +41,7 @@
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="50dp"
             android:clickable="true"
+
             android:src="@android:drawable/ic_input_add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

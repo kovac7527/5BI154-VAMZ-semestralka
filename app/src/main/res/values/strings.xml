@@ -47,6 +47,18 @@
     <string name="menu_item_waterprooftest">Test vodeodolnosti</string>
     <string name="menu_item_about">O nás</string>
 
+    <string name="list_item_servis_ticket_problem">Závada</string>
+    <string name="list_item_servis_ticket_state">Stav</string>
+
+
+
     <string name="logout_successfull">Boli ste úspešne odhlásený</string>
     <string name="logout_fail">Nastala chyba pri odhlasovaní</string>
+
+    <string name="ticket_state_sent">Odoslaný</string>
+    <string name="ticket_state_in_progress">Pracujeme na oprave</string>
+    <string name="ticket_state_servis_done">Oprava ukoncena</string>
+    <string name="ticket_state_finished">Zariadenie odovzdané</string>
+    <string name="ticket_state_unkown">Neznámy stav</string>
+
 </resources>
