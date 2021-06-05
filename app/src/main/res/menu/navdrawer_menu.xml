@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragmentServis"
+        android:title="@string/menu_item_servis" />
+    <item
+        android:id="@+id/fragmentServisHistory"
+        android:title="@string/menu_item_servis_history" />
+    <item
+        android:id="@+id/fragmentWaterProofTest"
+        android:title="@string/menu_item_waterprooftest" />
+    <item
+        android:id="@+id/fragmentAboutUs"
+        android:title="@string/menu_item_about" />
+    <item
+        android:id="@+id/menu_logout"
+        android:title="Odhlásiť" />
+</menu>

@@ -1,5 +1,6 @@
 package com.example.smartmedicapp.app_ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,8 @@ import com.auth0.android.callback.Callback
 import com.auth0.android.provider.WebAuthProvider
 import com.auth0.android.result.Credentials
 import com.auth0.android.result.UserProfile
+import com.example.smartmedicapp.CredentialsManager.CredentialsManager
+import com.example.smartmedicapp.LoggedActivity
 import com.example.smartmedicapp.R
 import com.example.smartmedicapp.databinding.FragmentWelcomeBinding
 import timber.log.Timber
@@ -103,13 +106,20 @@ class fragmentWelcome : Fragment() {
                 // Called when authentication completed successfully
                 override fun onSuccess(credentials: Credentials) {
 
+                    CredentialsManager.saveCredentials(credentials)
+
                     // Get the access token from the credentials object.
                     // This can be used to call APIs
                     cachedCredentials = credentials
                     Timber.i("OAuth login : SUCESS ${credentials.accessToken}")
                     val accessToken = credentials.accessToken
-                    showUserProfile()
-
+                    val intent = Intent (getActivity(), LoggedActivity::class.java)
+                    intent.addFlags(
+                        Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                                Intent.FLAG_ACTIVITY_NEW_TASK
+                    )
+                    requireActivity().startActivity(intent)
                 }
             })
     }

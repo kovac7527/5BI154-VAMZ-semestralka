@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigationlogged"
+    app:startDestination="@id/fragmentMain">
+
+    <fragment
+        android:id="@+id/fragmentMain"
+        android:name="com.example.smartmedicapp.FragmentMain"
+        android:label="FragmentMain" >
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentServis"
+            app:destination="@id/fragmentServis" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentServisHistory"
+            app:destination="@id/fragmentServisHistory" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentAboutUs"
+            app:destination="@id/fragmentAboutUs" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentWaterProofTest"
+            app:destination="@id/fragmentWaterProofTest" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentServis"
+        android:name="com.example.smartmedicapp.fragmentServis"
+        android:label="fragment_servis"
+        tools:layout="@layout/fragment_servis" />
+    <fragment
+        android:id="@+id/fragmentAboutUs"
+        android:name="com.example.smartmedicapp.fragmentAboutUs"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/fragmentServisHistory"
+        android:name="com.example.smartmedicapp.fragmentServisHistory"
+        android:label="fragment_servis_history"
+        tools:layout="@layout/fragment_servis_history" />
+    <fragment
+        android:id="@+id/fragmentWaterProofTest"
+        android:name="com.example.smartmedicapp.fragmentWaterProofTest"
+        android:label="fragment_water_proof_test"
+        tools:layout="@layout/fragment_water_proof_test" />
+</navigation>

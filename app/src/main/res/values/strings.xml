@@ -42,4 +42,11 @@
 
 
 
+    <string name="menu_item_servis">Servis</string>
+    <string name="menu_item_servis_history">Servisná história</string>
+    <string name="menu_item_waterprooftest">Test vodeodolnosti</string>
+    <string name="menu_item_about">O nás</string>
+
+    <string name="logout_successfull">Boli ste úspešne odhlásený</string>
+    <string name="logout_fail">Nastala chyba pri odhlasovaní</string>
 </resources>

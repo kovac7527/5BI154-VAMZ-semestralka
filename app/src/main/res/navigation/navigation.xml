@@ -17,9 +17,6 @@
         <action
             android:id="@+id/action_fragment_welcome_to_fragment_fast2"
             app:destination="@id/fragment_fast" />
-        <action
-            android:id="@+id/action_fragment_welcome_to_fragmentLogin"
-            app:destination="@id/fragmentLogin" />
     </fragment>
     <fragment
         android:id="@+id/fragment_economy"
@@ -33,8 +30,4 @@
         android:id="@+id/fragment_fast"
         android:name="com.example.smartmedicapp.app_ui.fragmentFast"
         android:label="fragment_fast" />
-    <fragment
-        android:id="@+id/fragmentLogin"
-        android:name="com.example.smartmedicapp.app_ui.fragmentLogin"
-        android:label="fragment_login" />
 </navigation>

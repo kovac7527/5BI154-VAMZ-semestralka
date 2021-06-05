@@ -25,7 +25,7 @@ android {
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "demo"]
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "@string/com_auth0_scheme"]
     }
 
     buildTypes {
@@ -83,8 +83,11 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0-alpha04'
 
     // Oauth
-    implementation 'com.auth0.android:auth0:2.2.0'
+    implementation 'com.auth0.android:auth0:2.0.0'
 
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //Recycler view
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
