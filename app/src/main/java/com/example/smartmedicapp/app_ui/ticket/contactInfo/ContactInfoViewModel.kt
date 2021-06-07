@@ -1,6 +1,5 @@
 package com.example.smartmedicapp.app_ui.ticket.contactInfo
 
-import android.telephony.PhoneNumberUtils
 import android.text.TextUtils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -71,9 +70,8 @@ class  ContactInfoViewModel (
     }
 
     fun isPhoneValid(): Boolean {
-        if (contactPhone.value != null) {
-          return   PhoneNumberUtils.isGlobalPhoneNumber(contactPhone.value)
-        } else return false
+        val validNumber = "^09(?:[0-9]){8}".toRegex()
+        return contactPhone.value != null && contactPhone.value.toString().matches(validNumber)
     }
 
     fun isAddressValid(): Boolean {
