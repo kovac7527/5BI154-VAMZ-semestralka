@@ -25,7 +25,11 @@
     <fragment
         android:id="@+id/fragmentServis"
         android:name="com.example.smartmedicapp.app_ui.servis.FragmentServis"
-        android:label="fragment_servis" />
+        android:label="fragment_servis" >
+        <action
+            android:id="@+id/action_fragmentServis_to_createTicketFragment"
+            app:destination="@id/createTicketFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentAboutUs"
         android:name="com.example.smartmedicapp.fragmentAboutUs"
@@ -41,4 +45,30 @@
         android:name="com.example.smartmedicapp.fragmentWaterProofTest"
         android:label="fragment_water_proof_test"
         tools:layout="@layout/fragment_water_proof_test" />
+    <fragment
+        android:id="@+id/createTicketFragment"
+        android:name="com.example.smartmedicapp.app_ui.ticket.FragmentCreateTicket"
+        android:label="fragment_create_ticket" >
+        <action
+            android:id="@+id/action_createTicketFragment_to_contantInfoFragment"
+            app:destination="@id/contantInfoFragment"
+            app:enterAnim="@anim/slide_from_right_to_left"
+            app:popEnterAnim="@anim/slide_from_right_to_left" />
+        <argument
+            android:name="deviceType"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/contantInfoFragment"
+        android:name="com.example.smartmedicapp.app_ui.ticket.contactInfo.FragmentContantInfo"
+        android:label="fragment_contant_info">
+        <action
+            android:id="@+id/action_contantInfoFragment_to_fragmentServis"
+            app:destination="@id/fragmentServis"
+            app:popUpTo="@id/fragmentServis"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="ticketId"
+            app:argType="long" />
+    </fragment>
 </navigation>

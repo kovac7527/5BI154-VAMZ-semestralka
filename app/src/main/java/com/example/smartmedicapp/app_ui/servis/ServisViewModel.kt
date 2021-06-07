@@ -15,6 +15,8 @@ class ServisViewModel(
      */
     val database = dataSource
 
-    val tickets = database.getAllTickets(CredentialsManager.getUserProfile().email.toString())
+    var tickets = database.getAllTickets(CredentialsManager.getUserProfile().email.toString())
+
+
 
 }

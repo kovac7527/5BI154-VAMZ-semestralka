@@ -47,7 +47,6 @@ class LoggedActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.nav_log_fragment)
-        drawerLayout.openDrawer(GravityCompat.START)
         return NavigationUI.navigateUp(navController, drawerLayout)
 
     }

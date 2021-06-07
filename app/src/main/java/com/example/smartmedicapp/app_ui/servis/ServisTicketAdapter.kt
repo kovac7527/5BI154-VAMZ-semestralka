@@ -48,6 +48,7 @@ class ServisTicketAdapter: RecyclerView.Adapter<ServisTicketAdapter.ViewHolder>(
         val ticketProblem: TextView = binding.ticketProblem
         val ticketState: TextView = binding.ticketState
         val ticketStateImage: ImageView = binding.imageTicketState
+        val ticketDeviceImage: ImageView = binding.imageDevice
 
         fun bind(item: ServisTicket) {
             val res = itemView.context.resources
@@ -67,6 +68,13 @@ class ServisTicketAdapter: RecyclerView.Adapter<ServisTicketAdapter.ViewHolder>(
                     1 -> R.mipmap.timer_glass_orange_svg
                     2 -> R.mipmap.done_orange_svg
                     2 -> R.mipmap.done_all_green_svg
+                    else -> R.drawable.timer_red_svg
+                }
+            )
+            ticketDeviceImage.setImageResource(
+                when (item.device_type) {
+                    0 -> R.mipmap.timer_glass_orange_svg
+
                     else -> R.drawable.timer_red_svg
                 }
             )

@@ -38,7 +38,7 @@ class FragmentMain : Fragment(), SensorEventListener {
 
         mSensorManager = this.requireActivity().getSystemService(Activity.SENSOR_SERVICE) as SensorManager
         mBarometer = mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)
-        mSensorManager.registerListener(this, this.mBarometer, SensorManager.SENSOR_DELAY_NORMAL);
+        //mSensorManager.registerListener(this, this.mBarometer, SensorManager.SENSOR_DELAY_NORMAL);
 
 
     }

@@ -8,9 +8,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "servis_ticket_table")
 data class ServisTicket(
 
-    @PrimaryKey(autoGenerate = true)
-    var ticketId: Long = 0L,
-
     @ColumnInfo(name = "user_id")
     val user_id : String?,
 
@@ -21,7 +18,7 @@ data class ServisTicket(
     val device_model : String?,
 
     @ColumnInfo(name = "device_type")
-    val device_type : String?,
+    val device_type : Int,
 
     @ColumnInfo(name = "problem")
     val problem : String?,
@@ -36,9 +33,12 @@ data class ServisTicket(
     val time_stamp: Long = System.currentTimeMillis(),
 
     @ColumnInfo(name = "ticket_finished")
-    val ticket_finished : Boolean?,
+    val ticket_finished : Boolean? = false,
 
     @ColumnInfo(name = "ticket_price")
     val ticket_price : Int = 0,
+
+    @PrimaryKey(autoGenerate = true)
+    var ticketId: Long = 0L
 
 )

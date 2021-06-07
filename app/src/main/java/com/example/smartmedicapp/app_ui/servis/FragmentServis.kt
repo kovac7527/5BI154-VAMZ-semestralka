@@ -8,9 +8,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.smartmedicapp.R
 import com.example.smartmedicapp.dataLayer.ServisDatabase
 import com.example.smartmedicapp.databinding.FragmentServisBinding
+import timber.log.Timber
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,6 +54,9 @@ class FragmentServis : Fragment() {
         binding.lifecycleOwner = this
         val adapter = ServisTicketAdapter()
         binding.ticketList.adapter = adapter
+        binding.floatingActionButton2.setOnClickListener {
+          findNavController().navigate(R.id.action_fragmentServis_to_createTicketFragment)
+        Timber.i("pressed floating")}
 
         servisViewModel.tickets.observe(viewLifecycleOwner, Observer {
             it?.let {
@@ -62,23 +67,5 @@ class FragmentServis : Fragment() {
         return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment fragmentServis.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentServis().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
 }

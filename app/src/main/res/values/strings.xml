@@ -41,7 +41,6 @@
     <string name="com_auth0_scheme">demo</string>
 
 
-
     <string name="menu_item_servis">Servis</string>
     <string name="menu_item_servis_history">Servisná história</string>
     <string name="menu_item_waterprooftest">Test vodeodolnosti</string>
@@ -49,7 +48,6 @@
 
     <string name="list_item_servis_ticket_problem">Závada</string>
     <string name="list_item_servis_ticket_state">Stav</string>
-
 
 
     <string name="logout_successfull">Boli ste úspešne odhlásený</string>
@@ -60,5 +58,18 @@
     <string name="ticket_state_servis_done">Oprava ukoncena</string>
     <string name="ticket_state_finished">Zariadenie odovzdané</string>
     <string name="ticket_state_unkown">Neznámy stav</string>
+
+    <string name="device_brand">Značka zariadenia</string>
+    <string name="device_model">Model</string>
+    <string name="device_problem">Závada</string>
+    <string name="device_problem_input_placerholder">Tu prosím bližšie popíšte závadu Vášho zariadenia ktorú chcete opraviť</string>
+    <string name="device_ticket_note">Poznámka k servisu</string>
+    <string name="device_ticket_note_input_placerholder">Do tohto políčka napíšte prosím dodatočné žiadosti k servisu, prípadne informácie o ktorých by sme mali vedieť</string>
+
+    <string name="contact_name">Meno a priezvisko</string>
+    <string name="contact_email">Email</string>
+    <string name="contact_phone">Telefónne číslo</string>
+    <string name="contact_address_pickup">Miesto vyzdvihnutia</string>
+
 
 </resources>

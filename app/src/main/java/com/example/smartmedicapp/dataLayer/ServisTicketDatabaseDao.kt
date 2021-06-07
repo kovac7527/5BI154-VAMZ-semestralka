@@ -21,9 +21,11 @@ interface ServisTicketDatabaseDao {
     @Query("DELETE FROM servis_ticket_table")
     suspend fun clear()
 
-    @Query("SELECT * FROM servis_ticket_table ORDER BY ticketId ASC")
+    @Query("SELECT * FROM servis_ticket_table ORDER BY ticketId DESC LIMIT 1")
     suspend fun getLastTicket(): ServisTicket?
 
     @Query("SELECT * FROM servis_ticket_table WHERE user_id = :key ORDER BY ticketId ASC")
     fun getAllTickets(key: String): LiveData<List<ServisTicket>>
+
+
 }
