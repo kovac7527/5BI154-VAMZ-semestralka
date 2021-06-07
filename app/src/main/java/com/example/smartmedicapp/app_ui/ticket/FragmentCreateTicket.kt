@@ -40,8 +40,10 @@ class FragmentCreateTicket : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
+        val arguments = FragmentCreateTicketArgs.fromBundle(requireArguments())
+
         val dataSource = ServisDatabase.getInstance(application).servisDatabaseDao
-        val viewModelFactory = CreateTicketViewModelFactory(dataSource, application)
+        val viewModelFactory = CreateTicketViewModelFactory(arguments.deviceType, dataSource)
 
         val createTicketViewModel =
             ViewModelProvider(

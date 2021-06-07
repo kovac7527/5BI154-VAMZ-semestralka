@@ -64,8 +64,12 @@ class FragmentServis : Fragment() {
         servisViewModel.adapter = adapter
 
         binding.floatingActionButton2.setOnClickListener {
-          findNavController().navigate(R.id.action_fragmentServis_to_createTicketFragment)
-        Timber.i("pressed floating")}
+         // FragmentServisDirections.actionFragmentServisToCreateTicketFragment(servisViewModel.deviceType)
+            this.findNavController().navigate(
+                FragmentServisDirections.actionFragmentServisToCreateTicketFragment(servisViewModel.deviceType))
+
+        Timber.i("pressed floating")
+        }
 
 
 
@@ -77,6 +81,10 @@ class FragmentServis : Fragment() {
             }
 
         })
+
+
+
+
 
 
 

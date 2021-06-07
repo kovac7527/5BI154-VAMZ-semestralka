@@ -1,6 +1,5 @@
 package com.example.smartmedicapp.app_ui.ticket
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,8 +9,8 @@ import com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao
 import kotlinx.coroutines.launch
 
 class CreateTicketViewModel (
-    dataSource: ServisTicketDatabaseDao ,
-    application: Application
+    private val deviceType: Int = 0,
+    private val  dataSource: ServisTicketDatabaseDao
 ) : ViewModel() {
 
     val database = dataSource
@@ -41,7 +40,7 @@ class CreateTicketViewModel (
                 val newDetails = DeviceDetailsTemp(
                     deviceBrand.value,
                     deviceModel.value,
-                    1,
+                    deviceType,
                     deviceProblem.value,
                     ticketNote.value
                 )
