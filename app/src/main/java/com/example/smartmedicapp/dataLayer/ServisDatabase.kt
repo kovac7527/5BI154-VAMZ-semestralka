@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [ServisTicket::class], version = 1, exportSchema = false)
+@Database(entities = [ServisTicket::class , DeviceDetailsTemp::class], version =3, exportSchema = false)
 abstract class ServisDatabase : RoomDatabase() {
 
     abstract val servisDatabaseDao: ServisTicketDatabaseDao
@@ -23,7 +23,7 @@ abstract class ServisDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         ServisDatabase::class.java,
-                        "sleep_history_database"
+                        "servis_ticket_database"
                     )
                         .fallbackToDestructiveMigration()
                         .build()

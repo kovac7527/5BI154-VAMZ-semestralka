@@ -5,8 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.smartmedicapp.CredentialsManager.CredentialsManager
-import com.example.smartmedicapp.dataLayer.ServisTicket
+import com.example.smartmedicapp.dataLayer.DeviceDetailsTemp
 import com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao
 import kotlinx.coroutines.launch
 
@@ -15,7 +14,9 @@ class CreateTicketViewModel (
     application: Application
 ) : ViewModel() {
 
+    val database = dataSource
 
+    var lastDevDetails : DeviceDetailsTemp? = null
 
     val deviceBrand = MutableLiveData<String>("")
     val deviceModel = MutableLiveData<String>("")
@@ -24,11 +25,11 @@ class CreateTicketViewModel (
 
     var valid  =  MutableLiveData<Boolean>(false)
 
-    val database = dataSource
 
-    private val _navigateToContactInfo = MutableLiveData<ServisTicket>()
 
-    val navigateToContactInfo: LiveData<ServisTicket>
+    private val _navigateToContactInfo = MutableLiveData<DeviceDetailsTemp>()
+
+    val navigateToContactInfo: LiveData<DeviceDetailsTemp>
         get() =  _navigateToContactInfo
 
 
@@ -37,18 +38,15 @@ class CreateTicketViewModel (
 
         viewModelScope.launch {
 
-                val newTicket = ServisTicket(
-                    CredentialsManager.getUserProfile().email ,
-                    deviceBrand.value ,
-                    deviceModel.value ,
-                    1 ,
-                    deviceProblem.value ,
-                    ticketNote.value ,
-                    0
-
+                val newDetails = DeviceDetailsTemp(
+                    deviceBrand.value,
+                    deviceModel.value,
+                    1,
+                    deviceProblem.value,
+                    ticketNote.value
                 )
-            database.insert(newTicket)
-            _navigateToContactInfo.value = database.getLastTicket()
+            database.insertDeviceDetails(newDetails)
+            _navigateToContactInfo.value = database.getLastDevDetails()
 
         }
 
@@ -81,6 +79,18 @@ class CreateTicketViewModel (
         if (deviceProblem.value != null) {
             return deviceProblem.value.toString().length > 3
         } else return false
+    }
+
+    fun readOldData() {
+        viewModelScope.launch {
+            lastDevDetails = database.getLastDevDetails()
+             deviceBrand.value = lastDevDetails?.device_brand
+            deviceModel.value = lastDevDetails?.device_model
+            deviceProblem.value = lastDevDetails?.problem
+            ticketNote.value = lastDevDetails?.ticket_note
+
+        }
+
     }
 
 }

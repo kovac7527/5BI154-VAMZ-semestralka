@@ -23,6 +23,7 @@
      the whole ViewModel, so that we can access the LiveData,
      click handlers, and state variables. -->
     <data>
+
         <variable
             name="servisViewModel"
             type="com.example.smartmedicapp.app_ui.servis.ServisViewModel" />
@@ -47,33 +48,40 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/button_filter_pc"
+            android:backgroundTint="@color/button_color_states"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
+            android:onClick="@{() -> servisViewModel.onClickPcFilter()}"
             android:text="Button"
+            android:textColor="@color/purple_200"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button11"
+            android:id="@+id/button_filter_console"
+            android:backgroundTint="@color/button_color_states"
             android:layout_width="wrap_content"
+            android:onClick="@{() -> servisViewModel.onClickConsoleFilter()}"
             android:layout_height="wrap_content"
             android:text="Button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button10"
-            app:layout_constraintTop_toTopOf="@+id/button10" />
+            app:layout_constraintStart_toEndOf="@+id/button_filter_pc"
+            app:layout_constraintTop_toTopOf="@+id/button_filter_pc" />
 
         <Button
-            android:id="@+id/button12"
+            android:id="@+id/button_filter_mobile"
+            android:backgroundTint="@color/button_color_states"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> servisViewModel.onClickPhoneFilter()}"
             android:text="Button"
-            app:layout_constraintEnd_toStartOf="@+id/button10"
+            app:layout_constraintEnd_toStartOf="@+id/button_filter_pc"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/button10" />
+            app:layout_constraintTop_toTopOf="@+id/button_filter_pc" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ticket_list"
@@ -84,7 +92,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button10"
+            app:layout_constraintTop_toBottomOf="@+id/button_filter_pc"
             app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

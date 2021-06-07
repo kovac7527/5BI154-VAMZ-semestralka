@@ -6,13 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.smartmedicapp.CredentialsManager.CredentialsManager
+import com.example.smartmedicapp.dataLayer.DeviceDetailsTemp
 import com.example.smartmedicapp.dataLayer.ServisTicket
 import com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class  ContactInfoViewModel (
-    private val ticketKey: Long = 0L,
+    private val detailsKey: Long = 0L ,
     private val dataSource: ServisTicketDatabaseDao
 ) : ViewModel() {
 
@@ -27,7 +27,7 @@ class  ContactInfoViewModel (
 
     val database = dataSource
 
-    var ticketToUpdate: ServisTicket? = null
+    var detailsToTicket: DeviceDetailsTemp? = null
 
     private val _navigateToServis = MutableLiveData<ServisTicket>()
 
@@ -39,10 +39,20 @@ class  ContactInfoViewModel (
     fun onSendTicket (){
 
         viewModelScope.launch {
-            ticketToUpdate = database.get(ticketKey)
-            Timber.i("yah i got new ticket with key : ${ticketKey}")
-            Timber.i("yah i got new ticket with brand : ${ticketToUpdate?.device_brand}")
-            _navigateToServis.value = ticketToUpdate
+            detailsToTicket = database.getTempDeviceDetails(detailsKey)
+            val newTicket = ServisTicket(
+                CredentialsManager.getUserProfile().email,
+                detailsToTicket?.device_brand ,
+                detailsToTicket?.device_model,
+                detailsToTicket?.device_type!! ,
+                detailsToTicket?.problem,
+                detailsToTicket?.ticket_note,
+                0,
+            )
+
+            database.insertServisTicket(newTicket)
+            database.clearTemDevDetails()
+            _navigateToServis.value = newTicket
         }
 
 
@@ -50,6 +60,7 @@ class  ContactInfoViewModel (
     }
 
     fun validateForm  () {
+
         valid.value = (isAddressValid()  &&  isNameValid()
                 && isPhoneValid()   && isEmailValid())
     }

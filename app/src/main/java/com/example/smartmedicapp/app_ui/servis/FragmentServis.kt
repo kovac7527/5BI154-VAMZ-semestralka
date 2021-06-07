@@ -12,12 +12,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.smartmedicapp.R
 import com.example.smartmedicapp.dataLayer.ServisDatabase
 import com.example.smartmedicapp.databinding.FragmentServisBinding
+import kotlinx.android.synthetic.main.fragment_main.*
 import timber.log.Timber
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+
 
 /**
  * A simple [Fragment] subclass.
@@ -52,17 +50,36 @@ class FragmentServis : Fragment() {
 
         binding.servisViewModel =  servisViewModel
         binding.lifecycleOwner = this
+
+        servisViewModel.buttonConsole = binding.buttonFilterConsole
+        servisViewModel.buttonPc = binding.buttonFilterPc
+        servisViewModel.buttonPhone = binding.buttonFilterMobile
+
+
+
+
+
         val adapter = ServisTicketAdapter()
         binding.ticketList.adapter = adapter
+        servisViewModel.adapter = adapter
+
         binding.floatingActionButton2.setOnClickListener {
           findNavController().navigate(R.id.action_fragmentServis_to_createTicketFragment)
         Timber.i("pressed floating")}
 
+
+
+
         servisViewModel.tickets.observe(viewLifecycleOwner, Observer {
             it?.let {
+                Timber.i("data changed")
                 adapter.data = it
             }
+
         })
+
+
+
 
         return binding.root
     }

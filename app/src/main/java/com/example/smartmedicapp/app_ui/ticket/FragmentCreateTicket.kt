@@ -47,8 +47,11 @@ class FragmentCreateTicket : Fragment() {
             ViewModelProvider(
                 this, viewModelFactory).get(CreateTicketViewModel::class.java)
 
+
         binding.createTicketViewModel =  createTicketViewModel
         binding.lifecycleOwner = this
+
+        createTicketViewModel.readOldData()
 
        val deviceBrand = binding.editTextDeviceBrand
         val deviceModel = binding.editTextDeviceModel
@@ -128,8 +131,8 @@ class FragmentCreateTicket : Fragment() {
                 // followed by back.
                 // Also: https://stackoverflow.com/questions/28929637/difference-and-uses-of-oncreate-oncreateview-and-onactivitycreated-in-fra
                 this.findNavController().navigate(
-                    FragmentCreateTicketDirections.actionCreateTicketFragmentToContantInfoFragment(ticket.ticketId))
-                    Timber.i("sending id ${ticket.ticketId} to another fragment")
+                    FragmentCreateTicketDirections.actionCreateTicketFragmentToContantInfoFragment(ticket.detailsId))
+                    Timber.i("sending id ${ticket.detailsId} to another fragment")
 
                 // Reset state to make sure we only navigate once, even if the device
                 // has a configuration change
