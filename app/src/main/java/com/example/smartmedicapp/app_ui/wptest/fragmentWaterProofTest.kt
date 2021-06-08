@@ -31,7 +31,7 @@ class fragmentWaterProofTest : Fragment() {
         // Inflate the layout for this fragment
         val binding: FragmentWaterProofTestBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_water_proof_test, container, false)
-
+        // setting the listener to button for navigation to real test
         binding.buttonContinueToTest.setOnClickListener{
             findNavController().navigate(R.id.action_fragmentWaterProofTest_to_WPTestingFragment)
         }

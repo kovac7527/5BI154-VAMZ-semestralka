@@ -9,12 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.auth0.android.Auth0
-import com.auth0.android.authentication.AuthenticationAPIClient
 import com.auth0.android.authentication.AuthenticationException
 import com.auth0.android.callback.Callback
 import com.auth0.android.provider.WebAuthProvider
 import com.auth0.android.result.Credentials
-import com.auth0.android.result.UserProfile
 import com.example.smartmedicapp.CredentialsManager.CredentialsManager
 import com.example.smartmedicapp.LoggedActivity
 import com.example.smartmedicapp.R
@@ -32,7 +30,16 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class fragmentWelcome : Fragment() {
+
+
+    /**
+     * Hold a account of 3th party service
+     */
     private lateinit var account: Auth0
+
+    /**
+     *Hold user credentials
+     */
     private var cachedCredentials: Credentials? = null
 
 
@@ -50,6 +57,9 @@ class fragmentWelcome : Fragment() {
         val application = requireNotNull(this.activity).application
 
         binding.setLifecycleOwner(this)
+
+        // added simple navigation for interactive images
+
         binding.imageEarth.setOnClickListener {
                 view : View ->
             view.findNavController().navigate(R.id.action_fragment_welcome_to_fragment_ecology)
@@ -68,9 +78,10 @@ class fragmentWelcome : Fragment() {
             //view.findNavController().navigate(R.id.action_fragment_welcome_to_fragmentLogin)
         }
 
+        // Creating a new Auth0 account
         account = Auth0(
-            "E3jXEWPwhz7DbDrP5t2GND0HRXEb05mS",
-            "dev-dpmumsxt.eu.auth0.com"
+            getString(R.string.com_auth0_client_id),
+            getString(R.string.com_auth0_domain),
         )
 
         return binding.root
@@ -82,6 +93,10 @@ class fragmentWelcome : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
+
+    /**
+     * Function which is responsible for start user validation via browser, here we are getting back JWT token
+     */
     private fun loginWithBrowser() {
         // Setup the WebAuthProvider, using the custom scheme and scope.
 
@@ -101,7 +116,7 @@ class fragmentWelcome : Fragment() {
 
                 // Called when authentication completed successfully
                 override fun onSuccess(credentials: Credentials) {
-
+                    // we save credentials to manager DI
                     CredentialsManager.saveCredentials(credentials)
 
                     // Get the access token from the credentials object.
@@ -120,7 +135,9 @@ class fragmentWelcome : Fragment() {
             })
     }
 
-
+    /**
+     * Function which enables user to logout
+     */
     private fun logout() {
         WebAuthProvider.logout(account)
             .withScheme("demo")
@@ -133,24 +150,6 @@ class fragmentWelcome : Fragment() {
                 override fun onFailure(error: AuthenticationException) {
                     Timber.i("OAuth logout :Something went wrong!" + error.message)
                     // Something went wrong!
-                }
-            })
-    }
-
-    private fun showUserProfile() {
-        val client = AuthenticationAPIClient(account)
-
-        // Use the access token to call userInfo endpoint.
-        // In this sample, we can assume cachedCredentials has been initialized by this point.
-        client.userInfo(cachedCredentials!!.accessToken!!)
-            .start(object : Callback<UserProfile, AuthenticationException> {
-                override fun onFailure(exception: AuthenticationException) {
-                    Timber.i("Failure: ${exception.getCode()}")
-                }
-
-                override fun onSuccess(profile: UserProfile) {
-                    Timber.i("Name: ${profile.name}  Email : ${profile.email}")
-
                 }
             })
     }

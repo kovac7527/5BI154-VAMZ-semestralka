@@ -20,7 +20,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class fragmentEcology : Fragment() {
-    // TODO: Rename and change types of parameters
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

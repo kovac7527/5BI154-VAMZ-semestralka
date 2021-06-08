@@ -3,7 +3,9 @@ package com.example.smartmedicapp.dataLayer
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
+/**
+ * Entity to hold data about registered servis ticket
+ */
 
 @Entity(tableName = "servis_ticket_table")
 data class ServisTicket(

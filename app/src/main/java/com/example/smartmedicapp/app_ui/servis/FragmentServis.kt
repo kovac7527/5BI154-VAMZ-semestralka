@@ -24,12 +24,19 @@ import timber.log.Timber
  */
 class FragmentServis : Fragment() {
 
-
+    /**
+     * This method ovverride onCreate
+     *
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
-
+    /**
+     * This method ovverride onCreateView
+     * Here we inflate layout and initialize databinding, and create adapter for our list
+     *
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,7 +47,7 @@ class FragmentServis : Fragment() {
             inflater, R.layout.fragment_servis, container, false)
 
         val application = requireNotNull(this.activity).application
-
+        // get instance of ou database
         val dataSource = ServisDatabase.getInstance(application).servisDatabaseDao
         val viewModelFactory = ServisViewModelFactory(dataSource, application)
 
@@ -51,27 +58,25 @@ class FragmentServis : Fragment() {
         binding.servisViewModel =  servisViewModel
         binding.lifecycleOwner = this
 
+        // providing buttons to model for control
         servisViewModel.buttonConsole = binding.buttonFilterConsole
         servisViewModel.buttonPc = binding.buttonFilterPc
         servisViewModel.buttonPhone = binding.buttonFilterMobile
 
-
-
-
+        //creating an adapter
 
         val adapter = ServisTicketAdapter()
         binding.ticketList.adapter = adapter
-        servisViewModel.adapter = adapter
 
+
+        // add an action to floating button to redirect to another fragment
         binding.floatingActionButton2.setOnClickListener {
-         // FragmentServisDirections.actionFragmentServisToCreateTicketFragment(servisViewModel.deviceType)
+
             this.findNavController().navigate(
                 FragmentServisDirections.actionFragmentServisToCreateTicketFragment(servisViewModel.deviceType))
 
         Timber.i("pressed floating")
         }
-
-
 
 
         servisViewModel.tickets.observe(viewLifecycleOwner, Observer {
@@ -82,12 +87,7 @@ class FragmentServis : Fragment() {
 
         })
 
-
-
-
-
-
-
+        // setting a default behavior for our list
         servisViewModel.onClickPhoneFilter()
         return binding.root
     }

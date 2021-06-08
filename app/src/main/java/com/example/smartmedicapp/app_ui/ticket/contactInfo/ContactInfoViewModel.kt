@@ -10,32 +10,51 @@ import com.example.smartmedicapp.dataLayer.DeviceDetailsTemp
 import com.example.smartmedicapp.dataLayer.ServisTicket
 import com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao
 import kotlinx.coroutines.launch
-
+/**
+ * This class is useful handling and controling user input in contact info form
+ *
+ */
 class  ContactInfoViewModel (
     private val detailsKey: Long = 0L ,
     private val dataSource: ServisTicketDatabaseDao
 ) : ViewModel() {
 
+    /**
+     * Live data of the form
+     *
+     */
     val contactName = MutableLiveData<String>(CredentialsManager.getUserProfile().name)
     val contactEmail = MutableLiveData<String>(CredentialsManager.getUserProfile().email)
     val contactPhone = MutableLiveData<String>("")
     val contactAddressPickup = MutableLiveData<String>("")
 
-
-
+    /**
+     * Holding a reference if is form valid
+     */
     var valid  =  MutableLiveData<Boolean>(false)
-
+    /**
+     * Holding a reference to database
+     */
     val database = dataSource
 
+    /**
+     * Holding a device details created on previous form
+     */
     var detailsToTicket: DeviceDetailsTemp? = null
 
+
+    /**
+     * Object to wich observer listen to ... usefull for navigation
+     */
     private val _navigateToServis = MutableLiveData<ServisTicket>()
 
     val navigateToServis: LiveData<ServisTicket>
         get() =  _navigateToServis
 
 
-
+    /**
+     * Method for handling sending ticket
+     */
     fun onSendTicket (){
 
         viewModelScope.launch {
@@ -58,7 +77,9 @@ class  ContactInfoViewModel (
 
 
     }
-
+    /**
+     * This method validate whole user form
+     */
     fun validateForm  () {
 
         valid.value = (isAddressValid()  &&  isNameValid()
@@ -70,21 +91,33 @@ class  ContactInfoViewModel (
         _navigateToServis.value = null
     }
 
+    /**
+     * This method validate name field in form
+     */
     fun isNameValid(): Boolean {
         if (contactName.value != null) {
             return contactName.value.toString().length > 5
         } else return false
     }
 
+    /**
+     * This method validate email field in form
+     */
     fun isEmailValid(): Boolean {
         return !TextUtils.isEmpty(contactEmail.value) && android.util.Patterns.EMAIL_ADDRESS.matcher(contactEmail.value).matches();
     }
 
+    /**
+     * This method validate phone field in form
+     */
     fun isPhoneValid(): Boolean {
         val validNumber = "^09(?:[0-9]){8}".toRegex()
         return contactPhone.value != null && contactPhone.value.toString().matches(validNumber)
     }
 
+    /**
+     * This method validate address field in form
+     */
     fun isAddressValid(): Boolean {
         if (contactAddressPickup.value != null) {
             return contactAddressPickup.value.toString().length > 10

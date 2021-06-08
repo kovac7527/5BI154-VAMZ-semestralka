@@ -8,11 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.smartmedicapp.R
 import com.example.smartmedicapp.dataLayer.ServisTicket
 import com.example.smartmedicapp.databinding.ListItemServisTicketBinding
-
+/**
+ * a Simple adapter for List of service tickets
+ *
+ */
 
 class ServisTicketAdapter: RecyclerView.Adapter<ServisTicketAdapter.ViewHolder>() {
 
-
+    // create dataset
     var data =  listOf<ServisTicket>()
         set(value) {
             field = value
@@ -41,7 +44,10 @@ class ServisTicketAdapter: RecyclerView.Adapter<ServisTicketAdapter.ViewHolder>(
 
     override fun getItemCount() = data.size
 
-
+    /**
+     * Viewholder for single items in list useful for binding properties
+     *
+     */
     class ViewHolder constructor(val binding: ListItemServisTicketBinding) : RecyclerView.ViewHolder(binding.root){
 
         val ticketName: TextView = binding.ticketName
@@ -63,6 +69,7 @@ class ServisTicketAdapter: RecyclerView.Adapter<ServisTicketAdapter.ViewHolder>(
 
                 else ->  res.getString(R.string.ticket_state_unkown)
             }
+            // set image based on ticket state
             ticketStateImage.setImageResource(
                 when (item.ticket_state) {
                     0 -> R.mipmap.local_shipping_svg  // odoslane
@@ -72,6 +79,7 @@ class ServisTicketAdapter: RecyclerView.Adapter<ServisTicketAdapter.ViewHolder>(
                     else -> R.mipmap.done_all_green_svg // ukoncene
                 }
             )
+            // set ticket image based on device type
             ticketDeviceImage.setImageResource(
                 when (item.device_type) {
                     1 -> R.mipmap.phone_image

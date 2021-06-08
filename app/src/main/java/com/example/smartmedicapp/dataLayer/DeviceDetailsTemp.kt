@@ -3,7 +3,9 @@ package com.example.smartmedicapp.dataLayer
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
+/**
+ * Entity to hold temporary data about device details on the service ticket
+ */
 
 @Entity(tableName = "device_details_temp")
 data class DeviceDetailsTemp(

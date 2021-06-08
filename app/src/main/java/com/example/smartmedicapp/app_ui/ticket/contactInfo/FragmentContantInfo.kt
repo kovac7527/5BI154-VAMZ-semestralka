@@ -42,23 +42,32 @@ class FragmentContantInfo : Fragment() {
         val application = requireNotNull(this.activity).application
         val arguments = FragmentContantInfoArgs.fromBundle(requireArguments())
 
+        //get a database instance
         val dataSource = ServisDatabase.getInstance(application).servisDatabaseDao
         val viewModelFactory = ContactInfoViewModelFactory(arguments.ticketId, dataSource )
 
+        // get a viewModel
         val contactInfoViewModel =
             ViewModelProvider(
                 this, viewModelFactory).get(ContactInfoViewModel::class.java)
 
+
+        //bind viewModel
         binding.contactInfoViewModel =  contactInfoViewModel
         binding.lifecycleOwner = this
 
+
+        // get a inputs field from binding
         val contactName = binding.editTextContactName
         val contactEmail = binding.edittextContactEmail
         val contactPhone = binding.edittextContactPhone
         val contactAddressPickup = binding.edittextAdressPickup
 
+        //set listener for texh change and add validation proccess
+
         contactName.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
+                // after text is changed we validate form
                 contactInfoViewModel.validateForm()
                 if (!contactInfoViewModel.isNameValid()){
                     contactName.setError(getString(R.string.input_error_short_text))
@@ -75,10 +84,11 @@ class FragmentContantInfo : Fragment() {
             }
         })
 
-
+        //set listener for texh change and add validation proccess
 
         contactEmail.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
+                // after text is changed we validate form
                 contactInfoViewModel.validateForm()
                 if (!contactInfoViewModel.isEmailValid()){
                     contactEmail.setError(getString(R.string.input_error_invalid_email))
@@ -95,7 +105,9 @@ class FragmentContantInfo : Fragment() {
             }
         })
 
+        //set listener for texh change and add validation proccess
         contactPhone.addTextChangedListener(object : TextWatcher {
+            // after text is changed we validate form
             override fun afterTextChanged(s: Editable) {
                 contactInfoViewModel.validateForm()
                 if (!contactInfoViewModel.isPhoneValid()){
@@ -113,6 +125,7 @@ class FragmentContantInfo : Fragment() {
             }
         })
 
+        //set listener for texh change and add validation proccess
         contactAddressPickup.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
                 contactInfoViewModel.validateForm()
@@ -131,22 +144,10 @@ class FragmentContantInfo : Fragment() {
             }
         })
 
-
-
-
-
-
-
-
+        // observing model variable to know if we are able to navigate further in application
         contactInfoViewModel.navigateToServis.observe(viewLifecycleOwner, Observer { ticket ->
             ticket?.let {
-                // We need to get the navController from this, because button is not ready, and it
-                // just has to be a view. For some reason, this only matters if we hit stop again
-                // after using the back button, not if we hit stop and choose a quality.
-                // Also, in the Navigation Editor, for Quality -> Tracker, check "Inclusive" for
-                // popping the stack to get the correct behavior if we press stop multiple times
-                // followed by back.
-                // Also: https://stackoverflow.com/questions/28929637/difference-and-uses-of-oncreate-oncreateview-and-onactivitycreated-in-fra
+
                 this.findNavController().navigate(
                     FragmentContantInfoDirections.actionContantInfoFragmentToFragmentServis())
 
@@ -155,10 +156,6 @@ class FragmentContantInfo : Fragment() {
                 contactInfoViewModel.doneNavigating()
             }
         })
-
-
-
-
 
         return binding.root
 

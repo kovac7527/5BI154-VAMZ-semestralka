@@ -10,7 +10,10 @@ import com.example.smartmedicapp.CredentialsManager.CredentialsManager
 import com.example.smartmedicapp.dataLayer.ServisTicket
 import com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao
 import kotlinx.coroutines.launch
-
+/**
+ * This class is useful for handling user actions on servis view
+ *
+ */
 class ServisViewModel(
     dataSource: ServisTicketDatabaseDao,
     application: Application
@@ -20,26 +23,29 @@ class ServisViewModel(
      * Hold a reference to SleepDatabase via SleepDatabaseDao.
      */
     val database = dataSource
-
+    /**
+     * Hold a reference to actual selected device type
+     *
+     */
     var deviceType = 2
 
-    var adapter : ServisTicketAdapter? = null
-
+    // reference to buttons for handling filters of list
     var buttonPhone : Button? = null
     var buttonConsole : Button? = null
     var buttonPc : Button? = null
 
-
+    /**
+     * list of actually displayed tickets
+     *
+     */
     private val _ticketsList = MutableLiveData<List<ServisTicket>>()
 
     val tickets : LiveData<List<ServisTicket>>
         get() = _ticketsList
-
-    //var tickets = database.getAllTicketsByType(CredentialsManager.getUserProfile().email.toString(),1)
-
-
-
-
+    /**
+     * Method to handle click on mobilephone filter
+     *
+     */
     fun onClickPhoneFilter(){
         buttonPhone?.isSelected = true;
         buttonConsole?.isSelected = false;
@@ -52,7 +58,10 @@ class ServisViewModel(
 
 
     }
-
+    /**
+     * Method to handle click on pc filter
+     *
+     */
     fun onClickPcFilter(){
         buttonPc?.isSelected = true;
         buttonConsole?.isSelected = false;
@@ -62,7 +71,10 @@ class ServisViewModel(
         _ticketsList.value = database.getAllTicketsByType(CredentialsManager.getUserProfile().email.toString(),deviceType)
         }
     }
-
+    /**
+     * Method to handle click on console filter
+     *
+     */
     fun onClickConsoleFilter(){
         buttonConsole?.isSelected = true;
         buttonPhone?.isSelected = false;

@@ -8,6 +8,9 @@ import com.auth0.android.result.Credentials
 import com.auth0.android.result.UserProfile
 import timber.log.Timber
 
+/**
+ * DI class that holds all information about currently loged in user
+ */
 object CredentialsManager {
     @Volatile private lateinit var account: Auth0
     @Volatile private var cachedCredentials: Credentials? = null
@@ -22,12 +25,19 @@ object CredentialsManager {
 
     }
 
+    /**
+     * Save credentials provided by service
+     */
     fun saveCredentials(credentials: Credentials) {
         cachedCredentials = credentials
         IsLoggedIn = true;
         resolveUserProfile()
     }
 
+
+    /**
+     * Resolve user profile
+     */
     fun resolveUserProfile()  {
 
         val client = AuthenticationAPIClient(account)
@@ -46,10 +56,16 @@ object CredentialsManager {
             })
     }
 
-
+    /**
+     * Returning Auth0 account
+     */
     fun getAccount():Auth0 {
         return account;
     }
+
+    /**
+     * Return user profile usefull for user informations
+     */
     fun getUserProfile() : UserProfile {
         return userProfile
     }

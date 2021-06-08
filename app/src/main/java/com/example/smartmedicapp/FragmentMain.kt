@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.smartmedicapp.CredentialsManager.CredentialsManager
 import com.example.smartmedicapp.databinding.FragmentMainBinding
 
 
@@ -41,7 +42,8 @@ class FragmentMain : Fragment()  {
 
         val binding: FragmentMainBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main ,container,false)
 
-
+        // set a welcome text for currently logged user
+        binding.textUserInfo.text = "Vitajte " + CredentialsManager.getUserProfile().name + " ! "
 
         return binding.root
     }

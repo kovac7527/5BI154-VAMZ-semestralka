@@ -5,6 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao
 
+/**
+ * This class is useful for creating ServisHistoryModel instances
+ *
+ */
 class ServisHistoryViewModelFactory (
     private val dataSource: ServisTicketDatabaseDao ,
     private val application: Application

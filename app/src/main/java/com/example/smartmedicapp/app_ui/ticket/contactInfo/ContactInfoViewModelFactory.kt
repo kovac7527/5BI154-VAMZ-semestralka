@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao
 
+/**
+ * This class is useful for creating ContanctInfoModel instances
+ */
 class ContactInfoViewModelFactory(
     private val detailsKey: Long = 0L ,
     private val dataSource: ServisTicketDatabaseDao

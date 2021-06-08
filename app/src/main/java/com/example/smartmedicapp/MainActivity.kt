@@ -5,6 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.smartmedicapp.CredentialsManager.CredentialsManager
 
+/**
+ * Activity that handles user interactions if user is not logged in
+ */
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +29,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
+        // if user is logged in then skip login screen
+
         if (CredentialsManager.IsLoggedIn) {
             val intent = Intent (this, LoggedActivity::class.java)
             intent.addFlags(

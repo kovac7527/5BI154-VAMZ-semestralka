@@ -14,10 +14,6 @@ import com.example.smartmedicapp.dataLayer.ServisDatabase
 import com.example.smartmedicapp.databinding.FragmentServisHistoryBinding
 import timber.log.Timber
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -25,13 +21,21 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class fragmentServisHistory : Fragment() {
-
-
+    /**
+     * This method ovverride onCreate
+     *
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
 
+    /**
+     * This method ovverride onCreateView
+     * Here we apply databinding and connecting adapter of recyclerview to the model
+     * Here we also use observer too observe list dataset
+     *
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,7 +46,7 @@ class fragmentServisHistory : Fragment() {
             inflater, R.layout.fragment_servis_history, container, false)
 
         val application = requireNotNull(this.activity).application
-
+        // Getting the instance of database
         val dataSource = ServisDatabase.getInstance(application).servisDatabaseDao
         val viewModelFactory = ServisHistoryViewModelFactory(dataSource, application)
 
@@ -50,14 +54,17 @@ class fragmentServisHistory : Fragment() {
             ViewModelProvider(
                 this, viewModelFactory).get(ServisHistoryViewModel::class.java)
 
+        // Binding model to the view
         binding.servisHistoryViewModel =  servisHistoryViewModel
         servisHistoryViewModel.readFinishedTickets()
         binding.lifecycleOwner = this
 
+        // Creating new adapter for view
         val adapter = ServisTicketAdapter()
         binding.ticketList.adapter = adapter
 
 
+        //adding observer to tickets list
         servisHistoryViewModel.tickets.observe(viewLifecycleOwner, Observer {
             it?.let {
                 Timber.i("data changed")

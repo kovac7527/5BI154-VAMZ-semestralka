@@ -19,6 +19,9 @@ import com.example.smartmedicapp.databinding.ActivityLoggedBinding
 import com.google.android.material.navigation.NavigationView
 import timber.log.Timber
 
+/**
+ * Activity launched after users succesfull login
+ */
 
 class LoggedActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener   {
 
@@ -52,14 +55,17 @@ class LoggedActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     }
 
 
+    /**
+     * Function to handle menu interactions
+     */
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.menu_logout -> {
                 // Handle the logout
                 Timber.i("it Works")
-
-
+                    // logout currently logged user by webauthprovider
                     WebAuthProvider.logout(CredentialsManager.getAccount())
                         .withScheme("demo")
                         .start(this, object:
@@ -85,18 +91,22 @@ class LoggedActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
             }
             R.id.fragmentServis-> {
+                // when pressed servis
                 findNavController(R.id.nav_log_fragment).navigate(R.id.action_fragmentMain_to_fragmentServis)
 
             }
             R.id.fragmentServisHistory-> {
+                // when pressed servis history
                 findNavController(R.id.nav_log_fragment).navigate(R.id.action_fragmentMain_to_fragmentServisHistory)
 
             }
             R.id.fragmentAboutUs-> {
+                // when pressed about us
                 findNavController(R.id.nav_log_fragment).navigate(R.id.action_fragmentMain_to_fragmentAboutUs)
 
             }
             R.id.fragmentWaterProofTest-> {
+                // when pressed waterProofTest
                 findNavController(R.id.nav_log_fragment).navigate(R.id.action_fragmentMain_to_fragmentWaterProofTest)
 
             }
@@ -113,7 +123,11 @@ class LoggedActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         Toast.makeText(applicationContext,  text ,Toast.LENGTH_LONG).show()
     }
 
+    /**
+     * Returning to login screen
+     */
     private fun returnToLogin () {
+        // back to main acitvity clear backstack
         val intent = Intent (this, MainActivity::class.java)
         intent.addFlags(
             Intent.FLAG_ACTIVITY_CLEAR_TOP or

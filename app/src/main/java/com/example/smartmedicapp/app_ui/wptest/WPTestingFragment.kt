@@ -26,15 +26,20 @@ import com.example.smartmedicapp.databinding.FragmentWPTestingBinding
  * create an instance of this fragment.
  */
 class WPTestingFragment : Fragment() , SensorEventListener {
-
+    /**
+     * Holding reference to sensor and sensor manager
+     */
     private lateinit var mSensorManager : SensorManager
     private var mBarometer : Sensor ?= null
     private lateinit var viewModel : WPTestingViewModel
 
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
+        // geta sensor manager from system service
         mSensorManager = this.requireActivity().getSystemService(Activity.SENSOR_SERVICE) as SensorManager
+        // get a specific sensor for pressure
         mBarometer = mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)
+        // register  this to list to sensor changes
         mSensorManager.registerListener(this, this.mBarometer, SensorManager.SENSOR_DELAY_NORMAL);
 
 
@@ -52,6 +57,8 @@ class WPTestingFragment : Fragment() , SensorEventListener {
 
         val application = requireNotNull(this.activity).application
 
+
+        // get database instance
         val dataSource = ServisDatabase.getInstance(application).servisDatabaseDao
         val viewModelFactory = WPTestingViewModelFactory(dataSource, application)
 
@@ -66,10 +73,7 @@ class WPTestingFragment : Fragment() , SensorEventListener {
 
         val image =  binding.imageButtonTest
 
-
-
-
-
+        // set image a listener for press and release to handle behavior by model
        image.setOnTouchListener(OnTouchListener { v , event ->
             if (event.action == MotionEvent.ACTION_DOWN) {
                 wpTestingViewModel.onClickButton()
@@ -79,21 +83,16 @@ class WPTestingFragment : Fragment() , SensorEventListener {
             true
         })
 
-
+        // add reference to result text and imageButton to model
         wpTestingViewModel.image =  image
         wpTestingViewModel.resultText = binding.textView2
 
 
-
-
-
-
-
-
-
         return binding.root
     }
-
+    /**
+     * This method is called when presure is changed
+     */
     override fun onSensorChanged(event: SensorEvent?) {
 
         if (event != null) {
@@ -103,16 +102,36 @@ class WPTestingFragment : Fragment() , SensorEventListener {
         }
     }
 
+    /**
+     * This method is called when presure sensor accuracy is changed
+     */
     override fun onAccuracyChanged(sensor: Sensor? , accuracy: Int) {
 
     }
 
+    /**
+     * Overriding onresume for registering listener of the sensor
+     */
     override fun onResume() {
         super.onResume()
         mSensorManager.registerListener(this, mBarometer, SensorManager.SENSOR_DELAY_NORMAL)
     }
+
+
+    /**
+     * Overriding onPause for unregistering listener, reason is that we dont want to use system resources any more
+     */
     override fun onPause() {
         super.onPause()
+        mSensorManager.unregisterListener(this)
+    }
+
+
+    /**
+     * Overriding OnDestroy for unregistering listener, reason is that we dont want to use system resources any more
+     */
+    override fun onDestroy() {
+        super.onDestroy()
         mSensorManager.unregisterListener(this)
     }
 

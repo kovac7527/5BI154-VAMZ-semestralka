@@ -9,7 +9,10 @@ import com.example.smartmedicapp.CredentialsManager.CredentialsManager
 import com.example.smartmedicapp.dataLayer.ServisTicket
 import com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao
 import kotlinx.coroutines.launch
-
+/**
+ * This Class is usefull for control servis history view
+ *
+ */
 class ServisHistoryViewModel(
     dataSource: ServisTicketDatabaseDao ,
     application: Application
@@ -25,11 +28,14 @@ class ServisHistoryViewModel(
     val tickets : LiveData<List<ServisTicket>>
         get() = _ticketsList
 
-    //var tickets = database.getAllTicketsByType(CredentialsManager.getUserProfile().email.toString(),1)
 
 
 
 
+    /**
+     * This method set a list of already finished tickets to our created ticket list
+     *
+     */
     fun readFinishedTickets(){
         viewModelScope.launch {
             _ticketsList.value = database.getAllDoneTickets(CredentialsManager.getUserProfile().email.toString())

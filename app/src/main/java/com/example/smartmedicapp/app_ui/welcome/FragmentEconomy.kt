@@ -9,8 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.smartmedicapp.R
 import com.example.smartmedicapp.databinding.FragmentEconomyBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
 
 
 /**
@@ -19,7 +18,7 @@ import com.example.smartmedicapp.databinding.FragmentEconomyBinding
  * create an instance of this fragment.
  */
 class fragmentEconomy : Fragment() {
-    // TODO: Rename and change types of parameters
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
