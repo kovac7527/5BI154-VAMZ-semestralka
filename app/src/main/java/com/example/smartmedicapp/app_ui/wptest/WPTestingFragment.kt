@@ -81,6 +81,7 @@ class WPTestingFragment : Fragment() , SensorEventListener {
 
 
         wpTestingViewModel.image =  image
+        wpTestingViewModel.resultText = binding.textView2
 
 
 

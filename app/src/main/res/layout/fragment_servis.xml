@@ -49,13 +49,12 @@
 
         <Button
             android:id="@+id/button_filter_pc"
-            android:backgroundTint="@color/button_color_states"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
+            android:backgroundTint="@color/button_color_states"
             android:onClick="@{() -> servisViewModel.onClickPcFilter()}"
-            android:text="Button"
-            android:textColor="@color/purple_200"
+            android:text="@string/servis_filter_pc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,22 +62,22 @@
 
         <Button
             android:id="@+id/button_filter_console"
-            android:backgroundTint="@color/button_color_states"
             android:layout_width="wrap_content"
-            android:onClick="@{() -> servisViewModel.onClickConsoleFilter()}"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:backgroundTint="@color/button_color_states"
+            android:onClick="@{() -> servisViewModel.onClickConsoleFilter()}"
+            android:text="@string/servis_filter_console"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button_filter_pc"
             app:layout_constraintTop_toTopOf="@+id/button_filter_pc" />
 
         <Button
             android:id="@+id/button_filter_mobile"
-            android:backgroundTint="@color/button_color_states"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_color_states"
             android:onClick="@{() -> servisViewModel.onClickPhoneFilter()}"
-            android:text="Button"
+            android:text="@string/servis_filter_mobil"
             app:layout_constraintEnd_toStartOf="@+id/button_filter_pc"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/button_filter_pc" />

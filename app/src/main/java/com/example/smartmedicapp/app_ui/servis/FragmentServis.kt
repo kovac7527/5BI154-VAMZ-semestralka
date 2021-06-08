@@ -88,7 +88,7 @@ class FragmentServis : Fragment() {
 
 
 
-
+        servisViewModel.onClickPhoneFilter()
         return binding.root
     }
 

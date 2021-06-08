@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="sleep"
+            type="com.example.smartmedicapp.dataLayer.ServisTicket"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_device"
+            android:layout_width="125dp"
+            android:layout_height="82dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.375"
+            tools:srcCompat="@drawable/timer_black_svg" />
+
+        <TextView
+            android:id="@+id/ticket_name"
+            android:layout_width="315dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.622"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Nazov zariadenia" />
+
+        <TextView
+            android:id="@+id/ticket_state"
+            android:layout_width="235dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@+id/image_ticket_state"
+            app:layout_constraintTop_toTopOf="@+id/image_ticket_state"
+            tools:text="Aktualny stav" />
+
+        <TextView
+            android:id="@+id/ticket_title_problem"
+            android:layout_width="201dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/list_item_servis_ticket_problem"
+            app:layout_constraintStart_toEndOf="@+id/image_device"
+            app:layout_constraintTop_toBottomOf="@+id/ticket_name" />
+
+        <TextView
+            android:id="@+id/ticket_problem"
+            android:layout_width="304dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="224dp"
+            android:layout_marginTop="4dp"
+            android:text="Zavady zariadenia"
+            app:layout_constraintStart_toStartOf="@+id/ticket_title_problem"
+            app:layout_constraintTop_toTopOf="@+id/ticket_title_problem" />
+
+        <TextView
+            android:id="@+id/ticket_title_state"
+            android:layout_width="231dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/list_item_servis_ticket_state"
+            app:layout_constraintStart_toStartOf="@+id/ticket_title_problem"
+            app:layout_constraintTop_toBottomOf="@+id/ticket_problem" />
+
+        <ImageView
+            android:id="@+id/image_ticket_state"
+            android:layout_width="23dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@+id/ticket_title_state"
+            app:layout_constraintTop_toTopOf="@+id/ticket_title_state"
+            app:srcCompat="@mipmap/timer_glass_orange_svg" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

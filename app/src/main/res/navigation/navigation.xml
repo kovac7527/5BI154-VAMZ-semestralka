@@ -6,7 +6,7 @@
     app:startDestination="@id/fragment_welcome">
     <fragment
         android:id="@+id/fragment_welcome"
-        android:name="com.example.smartmedicapp.app_ui.fragmentWelcome"
+        android:name="com.example.smartmedicapp.app_ui.welcome.fragmentWelcome"
         android:label="fragment_welcome">
         <action
             android:id="@+id/action_fragment_welcome_to_fragment_economy"
@@ -20,14 +20,14 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_economy"
-        android:name="com.example.smartmedicapp.app_ui.fragmentEconomy"
+        android:name="com.example.smartmedicapp.app_ui.welcome.fragmentEconomy"
         android:label="fragment_economy" />
     <fragment
         android:id="@+id/fragment_ecology"
-        android:name="com.example.smartmedicapp.app_ui.fragmentEcology"
+        android:name="com.example.smartmedicapp.app_ui.welcome.fragmentEcology"
         android:label="fragment_ecology" />
     <fragment
         android:id="@+id/fragment_fast"
-        android:name="com.example.smartmedicapp.app_ui.fragmentFast"
+        android:name="com.example.smartmedicapp.app_ui.welcome.fragmentFast"
         android:label="fragment_fast" />
 </navigation>

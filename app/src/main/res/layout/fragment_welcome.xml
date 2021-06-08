@@ -85,18 +85,5 @@
             app:layout_constraintTop_toBottomOf="@+id/image_earth"
             tools:text="@string/welcome_button_login" />
 
-        <Button
-            android:id="@+id/button_logout"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="216dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="92dp"
-            android:backgroundTint="#16C827"
-            android:text="LOGOUT"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_earth"
-            tools:text="@string/welcome_button_login" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

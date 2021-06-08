@@ -61,7 +61,7 @@ class FragmentContantInfo : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 contactInfoViewModel.validateForm()
                 if (!contactInfoViewModel.isNameValid()){
-                    contactName.setError("At least 3 characters")
+                    contactName.setError(getString(R.string.input_error_short_text))
                 }
 
             }
@@ -81,7 +81,7 @@ class FragmentContantInfo : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 contactInfoViewModel.validateForm()
                 if (!contactInfoViewModel.isEmailValid()){
-                    contactEmail.setError("At least 3 characters")
+                    contactEmail.setError(getString(R.string.input_error_invalid_email))
                 }
 
             }
@@ -99,7 +99,7 @@ class FragmentContantInfo : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 contactInfoViewModel.validateForm()
                 if (!contactInfoViewModel.isPhoneValid()){
-                    contactPhone.setError("At least 3 characters")
+                    contactPhone.setError(getString(R.string.input_error_invalid_number))
                 }
 
             }
@@ -117,7 +117,7 @@ class FragmentContantInfo : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 contactInfoViewModel.validateForm()
                 if (!contactInfoViewModel.isAddressValid()){
-                    contactAddressPickup.setError("At least 3 characters")
+                    contactAddressPickup.setError(getString(R.string.input_error_short_text))
                 }
 
             }

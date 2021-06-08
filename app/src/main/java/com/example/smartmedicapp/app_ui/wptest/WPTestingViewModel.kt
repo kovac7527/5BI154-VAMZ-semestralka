@@ -1,11 +1,13 @@
 package com.example.smartmedicapp.app_ui.wptest
 
 import android.app.Application
+import android.graphics.Color
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.smartmedicapp.CredentialsManager.CredentialsManager
 import com.example.smartmedicapp.R
+import com.example.smartmedicapp.SmartMedicApplication
 import com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao
 import timber.log.Timber
 
@@ -20,6 +22,7 @@ class WPTestingViewModel(
     val database = dataSource
 
     var image : ImageView? = null
+    var resultText : TextView? = null
 
     var pressure : Float = 0F
 
@@ -33,7 +36,7 @@ class WPTestingViewModel(
 
     var isPressed : Boolean = false
 
-    val message = MutableLiveData<String>(CredentialsManager.getUserProfile().name)
+    val message = MutableLiveData<String>(SmartMedicApplication.resourses.getString(R.string.WPTesting_first_message))
 
 
 
@@ -45,7 +48,7 @@ class WPTestingViewModel(
         startTestTime = System.currentTimeMillis()
 
 
-        message.value = "Tlačte na tlačidlo"
+        message.value =SmartMedicApplication.resourses.getString(R.string.WPTesting_keep_pushing)
         isPressed = true
 
 
@@ -60,13 +63,16 @@ class WPTestingViewModel(
         Timber.i("released")
         image?.setImageResource(R.mipmap.circle_push_blue_svg)
 
-        if  (timeTest < 3000 ) {
-            message.value = "Test neúspešný opakujte znova"
+        if  (timeTest < 1500 ) {
+            resultText?.setTextColor(Color.parseColor("#fcb70a"))
+            message.value = SmartMedicApplication.resourses.getString(R.string.WPTesting_test_fail)
         } else {
             if ((maxPressure - minPressure) > 0.9) {
-                message.value = "Vaše zariadenie je vodeodolné  ${maxPressure - minPressure}"
+                resultText?.setTextColor(Color.parseColor("#22e646"))
+                message.value = SmartMedicApplication.resourses.getString(R.string.WPTesting_test_pass) + "${maxPressure - minPressure}"
             } else {
-                message.value = "Vaše zariadenie nieje vodeodolné  ${maxPressure - minPressure}"
+                resultText?.setTextColor(Color.parseColor("#fc0a37"))
+                message.value = SmartMedicApplication.resourses.getString(R.string.WPTesting_test_nopass) + "${maxPressure - minPressure}"
             }
         }
         isPressed = false
@@ -82,8 +88,10 @@ class WPTestingViewModel(
             }
             var actualTime = System.currentTimeMillis()
             timeTest = actualTime - startTestTime
-            if  (timeTest > 3000 ) {
-                message.value = "Uvoľnite tlačidlo"
+            if  (timeTest > 1500 ) {
+                resultText?.setTextColor(Color.parseColor("#0a5bfc"))
+                message.value = SmartMedicApplication.resourses.getString(R.string.WPTesting_release)
+
             }
         } else {
             if (pressure < minPressure) {

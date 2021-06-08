@@ -74,9 +74,10 @@ class ServisTicketAdapter: RecyclerView.Adapter<ServisTicketAdapter.ViewHolder>(
             )
             ticketDeviceImage.setImageResource(
                 when (item.device_type) {
-                    0 -> R.mipmap.timer_glass_orange_svg
-
-                    else -> R.drawable.timer_red_svg
+                    1 -> R.mipmap.phone_image
+                    2 -> R.mipmap.pc_image
+                    3 -> R.mipmap.console_image
+                    else -> R.mipmap.phone_image
                 }
             )
 

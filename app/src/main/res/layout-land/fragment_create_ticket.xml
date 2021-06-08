@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2019, The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!-- Wrapping the layout into /layout to make it available with data binding. -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Data to make available to the XML via data binding. In this case,
+     the whole ViewModel, so that we can access the LiveData,
+     click handlers, and state variables. -->
+    <data>
+        <variable
+            name="CreateTicketViewModel"
+            type="com.example.smartmedicapp.app_ui.ticket.CreateTicketViewModel" />
+    </data>
+
+    <!-- Start of the visible fragment layout using ConstraintLayout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/input_device_brand"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarAlwaysDrawVerticalTrack="true">
+
+        <EditText
+            android:id="@+id/editText_device_brand"
+            android:layout_width="281dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="@={CreateTicketViewModel.deviceBrand}"
+            app:layout_constraintStart_toStartOf="@+id/textview_device_brand"
+            app:layout_constraintTop_toBottomOf="@+id/textview_device_brand" />
+
+        <EditText
+            android:id="@+id/edit_text_device_model"
+            android:layout_width="281dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="@={CreateTicketViewModel.deviceModel}"
+            app:layout_constraintStart_toStartOf="@+id/textview_device_model"
+            app:layout_constraintTop_toBottomOf="@+id/textview_device_model" />
+
+        <TextView
+            android:id="@+id/textview_device_brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/device_brand"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_device_model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/device_model"
+            app:layout_constraintStart_toEndOf="@+id/editText_device_brand"
+            app:layout_constraintTop_toTopOf="@+id/textview_device_brand" />
+
+        <EditText
+            android:id="@+id/editTextText_device_problem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/device_problem_input_placerholder"
+            android:inputType="textMultiLine"
+            android:text="@={CreateTicketViewModel.deviceProblem}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="@+id/text_view_problem"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_problem" />
+
+        <EditText
+            android:id="@+id/editText_ticket_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/device_ticket_note_input_placerholder"
+            android:inputType="textMultiLine"
+            android:text="@={CreateTicketViewModel.ticketNote}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/text_view_ticket_note"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_ticket_note" />
+
+        <TextView
+            android:id="@+id/text_view_problem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/device_problem"
+            app:layout_constraintStart_toStartOf="@+id/textview_device_brand"
+            app:layout_constraintTop_toBottomOf="@+id/edit_text_device_model" />
+
+        <TextView
+            android:id="@+id/text_view_ticket_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/device_ticket_note"
+            app:layout_constraintStart_toStartOf="@+id/text_view_problem"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText_device_problem" />
+
+        <Button
+            android:id="@+id/button_continue"
+            android:layout_width="174dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="16dp"
+            android:enabled="@{ CreateTicketViewModel.valid}"
+            android:onClick="@{() -> CreateTicketViewModel.onCreateNewTicket()}"
+            android:text="@string/button_continue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.499"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_ticket_note" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

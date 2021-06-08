@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:autoText="false"
-            android:text="@string/ecology_title_main"
+            android:text="@string/economy_title_main"
             android:textSize="26dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

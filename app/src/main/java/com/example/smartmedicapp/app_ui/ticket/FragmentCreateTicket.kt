@@ -63,7 +63,7 @@ class FragmentCreateTicket : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 createTicketViewModel.validateForm()
                 if (!createTicketViewModel.isBrandValid()){
-                    deviceBrand.setError("At least 3 characters")
+                    deviceBrand.setError(getString(R.string.input_error_short_text))
                 }
 
             }
@@ -83,7 +83,7 @@ class FragmentCreateTicket : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 createTicketViewModel.validateForm()
                 if (!createTicketViewModel.isModelValid()){
-                    deviceModel.setError("At least 3 characters")
+                    deviceModel.setError(getString(R.string.input_error_short_text))
                 }
 
             }
@@ -101,7 +101,7 @@ class FragmentCreateTicket : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 createTicketViewModel.validateForm()
                 if (!createTicketViewModel.isProblemValid()){
-                    deviceProblem.setError("At least 3 characters")
+                    deviceProblem.setError(getString(R.string.input_error_short_text))
                 }
 
             }

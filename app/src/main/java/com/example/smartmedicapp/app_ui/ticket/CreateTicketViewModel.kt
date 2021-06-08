@@ -83,10 +83,13 @@ class CreateTicketViewModel (
     fun readOldData() {
         viewModelScope.launch {
             lastDevDetails = database.getLastDevDetails()
-             deviceBrand.value = lastDevDetails?.device_brand
-            deviceModel.value = lastDevDetails?.device_model
-            deviceProblem.value = lastDevDetails?.problem
-            ticketNote.value = lastDevDetails?.ticket_note
+            if (lastDevDetails != null) {
+
+                deviceBrand.value = lastDevDetails?.device_brand
+                deviceModel.value = lastDevDetails?.device_model
+                deviceProblem.value = lastDevDetails?.problem
+                ticketNote.value = lastDevDetails?.ticket_note
+            }
 
         }
 

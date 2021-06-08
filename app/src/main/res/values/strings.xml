@@ -76,5 +76,25 @@
     <string name="button_continue">Pokračovat</string>
     <string name="WPTesting_text">Opatrne zatlačte čo najväčšou silou na tlačidlo v strede obrazovky pomocou palcou na oboch rukách, tlačte kým Vás systém nevyzve v uvoľneniu tlačidla.</string>
 
+    <string name="WPTesting_first_message">Pre začatie testu stlačte tlačidlo</string>
+    <string name="WPTesting_test_fail">Test neúspešný, opakujte znova</string>
+    <string name="WPTesting_test_pass">Test úspešný, gratulujeme vaše zariadenie je vodeodolné !</string>
+    <string name="WPTesting_test_nopass">Test úspešný, bohužial vaše zariadenie nieje vodeodolné !</string>
+    <string name="WPTesting_keep_pushing">Tlačte na tlačidlo</string>
+    <string name="WPTesting_release">Uvoľnite tlačidlo</string>
+
+
+    <string name="about_us_title">Kto vlastne sme ?</string>
+    <string name="about_us_text">Sme firma ktorá sa zaoberá servisom výpočtovej techniky a mobilných zariadení. Pôsobíme na trhu už viac než 20 rokov ! Našim hlavným cieľom je zvyšovať Váš komfort vo svete IT, ponúkame vysokoprofesionálne služby s dlhoročnými skúsenostami. Máme ľudský prístup, primerané ceny a pokiaľ je to možné vieme Vám poradiť aj na diaľku. Náš tým sa skladá prevažne z expertov a technikov ktorý pre Vás robia servis a rovnako aj poradenstvo, vďaka tomu sa možte u nás spoľahnuť že ste vždy v kontakte s expertami.</string>
+
+    <string name="servis_filter_mobil">Telefóny</string>
+    <string name="servis_filter_pc">Počítače</string>
+    <string name="servis_filter_console">Konzoly</string>
+
+    <string name="button_servis_send_ticket">Odoslať</string>
+    <string name="input_error_short_text">Text je príliš krátky</string>
+    <string name="input_error_invalid_email">Neplatný email</string>
+    <string name="input_error_invalid_number">Neplatné číslo</string>
+
 
 </resources>
