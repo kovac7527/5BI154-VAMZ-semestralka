@@ -1,0 +1,13 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+com.example.smartmedicapp
+com.example.smartmedicapp.CredentialsManager
+com.example.smartmedicapp.app_ui.servis
+com.example.smartmedicapp.app_ui.servis.history
+com.example.smartmedicapp.app_ui.ticket
+com.example.smartmedicapp.app_ui.ticket.contactInfo
+com.example.smartmedicapp.app_ui.welcome
+com.example.smartmedicapp.app_ui.wptest
+com.example.smartmedicapp.dataLayer
+com.example.smartmedicapp.utils

@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'org.jetbrains.dokka-android'
 
 android {
     compileSdkVersion 30
@@ -35,6 +36,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    // k doc
+    dokka {
+        outputFormat = 'html'
+        outputDirectory = "C:\\Users\\kovac\\AndroidStudioProjects\\SmartMedicApp\\doc"
     }
 
 

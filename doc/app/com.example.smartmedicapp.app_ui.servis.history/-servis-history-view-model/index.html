@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ServisHistoryViewModel - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">com.example.smartmedicapp.app_ui.servis.history</a>&nbsp;/&nbsp;<a href="./index.html">ServisHistoryViewModel</a><br/>
+<br/>
+<h1>ServisHistoryViewModel</h1>
+<code><span class="keyword">class </span><span class="identifier">ServisHistoryViewModel</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ViewModel</span></code>
+<p>This Class is usefull for control servis history view</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">ServisHistoryViewModel</span><span class="symbol">(</span><span class="identifier" id="com.example.smartmedicapp.app_ui.servis.history.ServisHistoryViewModel$<init>(com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao, android.app.Application)/dataSource">dataSource</span><span class="symbol">:</span>&nbsp;<a href="../../com.example.smartmedicapp.data-layer/-servis-ticket-database-dao/index.html"><span class="identifier">ServisTicketDatabaseDao</span></a><span class="symbol">, </span><span class="identifier" id="com.example.smartmedicapp.app_ui.servis.history.ServisHistoryViewModel$<init>(com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao, android.app.Application)/application">application</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Application.html"><span class="identifier">Application</span></a><span class="symbol">)</span></code>
+<p>This Class is usefull for control servis history view</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="database.html">database</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">database</span><span class="symbol">: </span><a href="../../com.example.smartmedicapp.data-layer/-servis-ticket-database-dao/index.html"><span class="identifier">ServisTicketDatabaseDao</span></a></code>
+<p>Hold a reference to SleepDatabase via SleepDatabaseDao.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="tickets.html">tickets</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">tickets</span><span class="symbol">: </span><span class="identifier">LiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../com.example.smartmedicapp.data-layer/-servis-ticket/index.html"><span class="identifier">ServisTicket</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="read-finished-tickets.html">readFinishedTickets</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">readFinishedTickets</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>This method set a list of already finished tickets to our created ticket list</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

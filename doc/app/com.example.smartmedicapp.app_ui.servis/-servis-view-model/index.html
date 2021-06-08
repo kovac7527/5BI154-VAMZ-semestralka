@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ServisViewModel - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">com.example.smartmedicapp.app_ui.servis</a>&nbsp;/&nbsp;<a href="./index.html">ServisViewModel</a><br/>
+<br/>
+<h1>ServisViewModel</h1>
+<code><span class="keyword">class </span><span class="identifier">ServisViewModel</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ViewModel</span></code>
+<p>This class is useful for handling user actions on servis view</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">ServisViewModel</span><span class="symbol">(</span><span class="identifier" id="com.example.smartmedicapp.app_ui.servis.ServisViewModel$<init>(com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao, android.app.Application)/dataSource">dataSource</span><span class="symbol">:</span>&nbsp;<a href="../../com.example.smartmedicapp.data-layer/-servis-ticket-database-dao/index.html"><span class="identifier">ServisTicketDatabaseDao</span></a><span class="symbol">, </span><span class="identifier" id="com.example.smartmedicapp.app_ui.servis.ServisViewModel$<init>(com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao, android.app.Application)/application">application</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Application.html"><span class="identifier">Application</span></a><span class="symbol">)</span></code>
+<p>This class is useful for handling user actions on servis view</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="button-console.html">buttonConsole</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">buttonConsole</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/widget/Button.html"><span class="identifier">Button</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="button-pc.html">buttonPc</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">buttonPc</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/widget/Button.html"><span class="identifier">Button</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="button-phone.html">buttonPhone</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">buttonPhone</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/widget/Button.html"><span class="identifier">Button</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="database.html">database</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">database</span><span class="symbol">: </span><a href="../../com.example.smartmedicapp.data-layer/-servis-ticket-database-dao/index.html"><span class="identifier">ServisTicketDatabaseDao</span></a></code>
+<p>Hold a reference to SleepDatabase via SleepDatabaseDao.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="device-type.html">deviceType</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">deviceType</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Hold a reference to actual selected device type</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="tickets.html">tickets</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">tickets</span><span class="symbol">: </span><span class="identifier">LiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../com.example.smartmedicapp.data-layer/-servis-ticket/index.html"><span class="identifier">ServisTicket</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="on-click-console-filter.html">onClickConsoleFilter</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onClickConsoleFilter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Method to handle click on console filter</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-click-pc-filter.html">onClickPcFilter</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onClickPcFilter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Method to handle click on pc filter</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-click-phone-filter.html">onClickPhoneFilter</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onClickPhoneFilter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Method to handle click on mobilephone filter</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
