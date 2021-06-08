@@ -1,4 +1,4 @@
-package com.example.smartmedicapp
+package com.example.smartmedicapp.app_ui.wptest
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.smartmedicapp.databinding.FragmentMainBinding
-
+import com.example.smartmedicapp.R
+import com.example.smartmedicapp.databinding.FragmentWaterProofTestBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,17 +17,14 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [FragmentMain.newInstance] factory method to
+ * Use the [fragmentWaterProofTest.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FragmentMain : Fragment()  {
-
+class fragmentWaterProofTest : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
 
     }
 
@@ -36,24 +33,14 @@ class FragmentMain : Fragment()  {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        val binding: FragmentWaterProofTestBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_water_proof_test, container, false)
 
-        val navController = findNavController()
-
-        val binding: FragmentMainBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main ,container,false)
-
-
+        binding.buttonContinueToTest.setOnClickListener{
+            findNavController().navigate(R.id.action_fragmentWaterProofTest_to_WPTestingFragment)
+        }
 
         return binding.root
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-
-    }
-    override fun onPause() {
-        super.onPause()
-
     }
 
 

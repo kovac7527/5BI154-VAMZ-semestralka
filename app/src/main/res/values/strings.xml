@@ -71,5 +71,10 @@
     <string name="contact_phone">Telefónne číslo</string>
     <string name="contact_address_pickup">Miesto vyzdvihnutia</string>
 
+    <string name="title_danger">!!! UPOZORNENIE !!!</string>
+    <string name="text_danger_waterproof_test">Tento test vykonávajte len na vlastné riziko, a na vlastnú zodpovednosť. Tvorca aplikácie nenesie žiadnu zodpovednosť za prípadné poškodenie zariadenia.</string>
+    <string name="button_continue">Pokračovat</string>
+    <string name="WPTesting_text">Opatrne zatlačte čo najväčšou silou na tlačidlo v strede obrazovky pomocou palcou na oboch rukách, tlačte kým Vás systém nevyzve v uvoľneniu tlačidla.</string>
+
 
 </resources>

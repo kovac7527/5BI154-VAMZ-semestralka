@@ -37,14 +37,16 @@
         tools:layout="@layout/fragment_about_us" />
     <fragment
         android:id="@+id/fragmentServisHistory"
-        android:name="com.example.smartmedicapp.fragmentServisHistory"
-        android:label="fragment_servis_history"
-        tools:layout="@layout/fragment_servis_history" />
+        android:name="com.example.smartmedicapp.app_ui.servis.history.fragmentServisHistory"
+        android:label="fragment_servis_history" />
     <fragment
         android:id="@+id/fragmentWaterProofTest"
-        android:name="com.example.smartmedicapp.fragmentWaterProofTest"
-        android:label="fragment_water_proof_test"
-        tools:layout="@layout/fragment_water_proof_test" />
+        android:name="com.example.smartmedicapp.app_ui.wptest.fragmentWaterProofTest"
+        android:label="fragment_water_proof_test">
+        <action
+            android:id="@+id/action_fragmentWaterProofTest_to_WPTestingFragment"
+            app:destination="@id/WPTestingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createTicketFragment"
         android:name="com.example.smartmedicapp.app_ui.ticket.FragmentCreateTicket"
@@ -71,4 +73,8 @@
             android:name="ticketId"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/WPTestingFragment"
+        android:name="com.example.smartmedicapp.app_ui.wptest.WPTestingFragment"
+        android:label="fragment_w_p_testing" />
 </navigation>

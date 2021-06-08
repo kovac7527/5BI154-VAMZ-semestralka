@@ -32,7 +32,8 @@ interface ServisTicketDatabaseDao {
     @Query("SELECT * FROM servis_ticket_table WHERE user_id = :key AND device_type =:type ORDER BY ticketId ASC")
     suspend fun getAllTicketsByType(key: String, type: Int): List<ServisTicket>
 
-
+    @Query("SELECT * FROM servis_ticket_table WHERE user_id = :key AND ticket_state = 4 ORDER BY ticketId ASC")
+    suspend fun getAllDoneTickets(key: String): List<ServisTicket>
 
 
     @Query("SELECT * from device_details_temp WHERE detailsId = :key")
