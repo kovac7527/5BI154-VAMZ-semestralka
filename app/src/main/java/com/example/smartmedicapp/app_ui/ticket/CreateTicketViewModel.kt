@@ -89,7 +89,7 @@ class CreateTicketViewModel (
      */
     fun isModelValid(): Boolean {
         if (deviceModel.value != null) {
-            return deviceModel.value.toString().length > 3
+            return deviceModel.value.toString().length > 1
         } else return false
     }
 

@@ -78,6 +78,8 @@
             android:layout_width="23dp"
             android:layout_height="22dp"
             android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ticket_title_state"
             app:layout_constraintTop_toTopOf="@+id/ticket_title_state"
             app:srcCompat="@mipmap/timer_glass_orange_svg" />

@@ -9,6 +9,8 @@ import com.example.smartmedicapp.CredentialsManager.CredentialsManager
 import com.example.smartmedicapp.dataLayer.ServisTicket
 import com.example.smartmedicapp.dataLayer.ServisTicketDatabaseDao
 import kotlinx.coroutines.launch
+import timber.log.Timber
+
 /**
  * This Class is usefull for control servis history view
  *
@@ -37,8 +39,13 @@ class ServisHistoryViewModel(
      *
      */
     fun readFinishedTickets(){
+        Timber.i("Reading finished Tickets")
         viewModelScope.launch {
-            _ticketsList.value = database.getAllDoneTickets(CredentialsManager.getUserProfile().email.toString())
+            _ticketsList.value = CredentialsManager.getUserProfile().email?.let {
+                database.getAllDoneTickets(
+                    it
+                )
+            }
         }
 
     }

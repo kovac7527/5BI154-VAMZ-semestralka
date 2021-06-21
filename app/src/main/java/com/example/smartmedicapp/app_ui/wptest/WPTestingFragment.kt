@@ -50,6 +50,7 @@ class WPTestingFragment : Fragment() , SensorEventListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
 
         val binding: FragmentWPTestingBinding = DataBindingUtil.inflate(

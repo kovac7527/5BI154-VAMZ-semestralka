@@ -33,10 +33,10 @@ interface ServisTicketDatabaseDao {
     @Query("SELECT * FROM servis_ticket_table WHERE user_id = :key ORDER BY ticketId ASC")
     suspend fun getAllTickets(key: String): List<ServisTicket>
 
-    @Query("SELECT * FROM servis_ticket_table WHERE user_id = :key AND device_type =:type ORDER BY ticketId ASC")
+    @Query("SELECT * FROM servis_ticket_table WHERE user_id = :key AND device_type =:type AND ticket_state != 4 ORDER BY ticketId desc")
     suspend fun getAllTicketsByType(key: String, type: Int): List<ServisTicket>
 
-    @Query("SELECT * FROM servis_ticket_table WHERE user_id = :key AND ticket_state = 4 ORDER BY ticketId ASC")
+    @Query("SELECT * FROM servis_ticket_table WHERE user_id = :key AND ticket_state = 4 ORDER BY ticketId Desc")
     suspend fun getAllDoneTickets(key: String): List<ServisTicket>
 
 

@@ -66,7 +66,7 @@ class  ContactInfoViewModel (
                 detailsToTicket?.device_type!! ,
                 detailsToTicket?.problem,
                 detailsToTicket?.ticket_note,
-                0,
+                4,
             )
 
             database.insertServisTicket(newTicket)

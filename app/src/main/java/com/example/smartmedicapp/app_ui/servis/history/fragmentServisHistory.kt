@@ -40,6 +40,7 @@ class fragmentServisHistory : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
 
         val binding: FragmentServisHistoryBinding = DataBindingUtil.inflate(
@@ -72,6 +73,8 @@ class fragmentServisHistory : Fragment() {
             }
 
         })
+
+        servisHistoryViewModel.readFinishedTickets()
 
 
         return binding.root

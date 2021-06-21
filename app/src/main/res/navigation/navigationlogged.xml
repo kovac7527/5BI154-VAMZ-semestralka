@@ -45,7 +45,9 @@
         android:label="fragment_water_proof_test">
         <action
             android:id="@+id/action_fragmentWaterProofTest_to_WPTestingFragment"
-            app:destination="@id/WPTestingFragment" />
+            app:destination="@id/WPTestingFragment"
+            app:enterAnim="@anim/slide_from_right_to_left"
+            app:popEnterAnim="@anim/slide_from_right_to_left" />
     </fragment>
     <fragment
         android:id="@+id/createTicketFragment"

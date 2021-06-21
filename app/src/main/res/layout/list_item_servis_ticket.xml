@@ -11,7 +11,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#d5dfeb">
 
         <ImageView
             android:id="@+id/image_device"
@@ -30,6 +31,8 @@
             android:layout_width="315dp"
             android:layout_height="25dp"
             android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.166"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,6 +55,7 @@
             android:layout_marginStart="60dp"
             android:layout_marginTop="16dp"
             android:text="@string/list_item_servis_ticket_problem"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/ticket_name"
             app:layout_constraintTop_toBottomOf="@+id/ticket_name" />
 
@@ -71,6 +75,7 @@
             android:layout_height="20dp"
             android:layout_marginTop="8dp"
             android:text="@string/list_item_servis_ticket_state"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/ticket_title_problem"
             app:layout_constraintTop_toBottomOf="@+id/ticket_problem" />
 
@@ -79,6 +84,8 @@
             android:layout_width="22dp"
             android:layout_height="28dp"
             android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/ticket_problem"
             app:layout_constraintTop_toBottomOf="@+id/ticket_title_state"
             app:srcCompat="@mipmap/timer_glass_orange_svg" />

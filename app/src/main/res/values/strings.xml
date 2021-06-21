@@ -29,7 +29,7 @@
     <string name="fast_title_subtitle3">Non-stop podpora</string>
     <string name="fast_text_subtitle3">Sme tu pre Vás 24 hodín denne, pokiaľ potrebujete poradiť alebo pomôcť na ďiaľku stačí nám zavolať na uvedené telefónne čísla, radi Vám poradíme.</string>
 
-    <string name="login_welcome">Vitajte !</string>
+    <string name="login_welcome">Vitajte v aplikácií Smart Medic !</string>
     <string name="login_add_text">Pre pokračovanie sa prosím prihláste</string>
     <string name="login_field_name">Meno</string>
     <string name="login_field_pwd">Heslo</string>
@@ -40,6 +40,9 @@
     <string name="com_auth0_domain">dev-dpmumsxt.eu.auth0.com</string>
     <string name="com_auth0_scheme">demo</string>
 
+
+    <string name="ticket_created">Vaša žiadosť bola úspešne odoslaná !</string>
+    <string name="login_successfull">Boli ste úspešne prihlásený</string>
 
     <string name="menu_item_servis">Servis</string>
     <string name="menu_item_servis_history">Servisná história</string>
@@ -95,6 +98,13 @@
     <string name="input_error_short_text">Text je príliš krátky</string>
     <string name="input_error_invalid_email">Neplatný email</string>
     <string name="input_error_invalid_number">Neplatné číslo</string>
+
+    <string name="fragment_title_servis">Servis</string>
+    <string name="fragment_title_servis_history">Servisná história</string>
+    <string name="fragment_title_ticket_request1">Žiadosť o servis (1/2)</string>
+    <string name="fragment_title_ticket_request2">Žiadosť o servis (2/2)</string>
+    <string name="fragment_title_aboutus">O nás</string>
+    <string name="fragment_title_waterTest">Test vodeodolnosti</string>
 
 
 </resources>

@@ -4,16 +4,16 @@
 
     <item
         android:id="@+id/fragmentServis"
-        android:title="@string/menu_item_servis" />
+        android:title="@string/fragment_title_servis" />
     <item
         android:id="@+id/fragmentServisHistory"
-        android:title="@string/menu_item_servis_history" />
+        android:title="@string/fragment_title_servis_history" />
     <item
         android:id="@+id/fragmentWaterProofTest"
-        android:title="@string/menu_item_waterprooftest" />
+        android:title="@string/fragment_title_waterTest" />
     <item
         android:id="@+id/fragmentAboutUs"
-        android:title="@string/menu_item_about" />
+        android:title="@string/fragment_title_aboutus" />
     <item
         android:id="@+id/menu_logout"
         android:title="Odhlásiť" />

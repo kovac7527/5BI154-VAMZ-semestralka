@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -118,6 +119,7 @@ class fragmentWelcome : Fragment() {
                 override fun onSuccess(credentials: Credentials) {
                     // we save credentials to manager DI
                     CredentialsManager.saveCredentials(credentials)
+                    Toast.makeText(requireContext(),  getString(R.string.login_successfull) , Toast.LENGTH_LONG).show()
 
                     // Get the access token from the credentials object.
                     // This can be used to call APIs

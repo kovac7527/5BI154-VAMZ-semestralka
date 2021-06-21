@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -34,6 +35,7 @@ class FragmentContantInfo : Fragment() {
         inflater : LayoutInflater , container : ViewGroup? ,
         savedInstanceState : Bundle?
     ) : View? {
+
         // Inflate the layout for this fragment
 
         val binding: FragmentContantInfoBinding = DataBindingUtil.inflate(
@@ -150,7 +152,7 @@ class FragmentContantInfo : Fragment() {
 
                 this.findNavController().navigate(
                     FragmentContantInfoDirections.actionContantInfoFragmentToFragmentServis())
-
+                Toast.makeText(this.requireContext(),  getString(R.string.ticket_created) , Toast.LENGTH_LONG).show()
                 // Reset state to make sure we only navigate once, even if the device
                 // has a configuration change
                 contactInfoViewModel.doneNavigating()

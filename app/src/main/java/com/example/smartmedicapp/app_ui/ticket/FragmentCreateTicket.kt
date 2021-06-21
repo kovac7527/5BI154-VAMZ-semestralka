@@ -38,6 +38,7 @@ class FragmentCreateTicket : Fragment() {
         inflater : LayoutInflater , container : ViewGroup? ,
         savedInstanceState : Bundle?
     ) : View? {
+
         //initialize binding
         val binding:  FragmentCreateTicketBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_create_ticket, container, false)
